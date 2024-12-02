@@ -1,0 +1,25 @@
+{
+  "name": "pack-demo",
+  "version": "0.0.1",
+  "description": "a package demo for commonjs and esm all in one",
+  "main": "index.js",
+  "scripts": {
+    "publish": "npm run build && cd ./dist && npm publish --access public",
+    "build": "rm -rf ./dist && npm run build:esm && npm run build:cjs && cp ./src/scripts/package.json ./dist/",
+    "build:esm": "tsc -p tsconfig.esm.json && cp ./src/esm/package.json ./dist/esm/package.json && cp ./src/esm/index.mjs ./dist/esm/index.js ",
+    "build:cjs": "tsc -p tsconfig.cjs.json && cp ./src/cjs/package.json ./dist/cjs/package.json && cp ./src/cjs/index.cjs ./dist/cjs/index.js "
+  },
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "man": "./src/index.ts",
+  "devDependencies": {
+    "@types/node": "^22.9.3",
+    "typescript": "^5.7.2",
+    "undici-types": "^7.0.0"
+  }
+}
