@@ -1,18 +1,24 @@
 {
   "name": "@chaoliulc/pack-demo",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "a package demo for commonjs and esm all in one",
   "type": "module",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
   "exports": {
-    "import": "./esm/index.js",
-    "require": "./cjs/index.js"
+    "import": {
+      "types": "./esm/index.d.ts",
+      "default": "./esm/index.js"
+    },
+    "require": {
+      "types": "./cjs/index.d.ts",
+      "default": "./cjs/index.js"
+    }
   },
   "author": "chaoliulc",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chaoliulc/pack-demo.git" 
+    "url": "git+https://github.com/chaoliulc/pack-demo.git"
   },
   "bugs": {
     "url": "https://github.com/chaoliulc/pack-demo/issues"

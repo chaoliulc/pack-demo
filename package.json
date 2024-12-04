@@ -6,8 +6,8 @@
   "scripts": {
     "publish": "npm run build && cd ./dist && npm publish --access public",
     "build": "rm -rf ./dist && npm run build:esm && npm run build:cjs && cp ./src/scripts/package.json ./dist/",
-    "build:esm": "tsc -p tsconfig.esm.json && cp ./src/esm/package.json ./dist/esm/package.json && cp ./src/esm/index.mjs ./dist/esm/index.js ",
-    "build:cjs": "tsc -p tsconfig.cjs.json && cp ./src/cjs/package.json ./dist/cjs/package.json && cp ./src/cjs/index.cjs ./dist/cjs/index.js "
+    "build:esm": "tsc -p tsconfig.esm.json && cp ./src/esm/package.json ./dist/esm/package.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json && cp ./src/cjs/package.json ./dist/cjs/package.json"
   },
   "exports": {
     "import": "./dist/esm/index.js",
